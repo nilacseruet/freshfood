@@ -1,0 +1,68 @@
+/* You can add global primarys to this file, and also import other primary files */
+$font-stack:    Helvetica, sans-serif;
+$logo-color: #28492B;
+$logo-light-color: green;
+
+.main-wrapper{
+    background-image: url('assets/bg-layout-wrapper.jpg');
+    background-repeat: repeat-y;
+    
+}
+
+.logo-wrapper{
+    padding-top: 20px;
+}
+
+.logo{
+   
+    text-align: center;
+    padding-top: 20px;
+}
+
+.logo-border{
+    border-bottom: 1px solid $logo-color;
+    text-align: center;
+    margin: 0px auto;
+    width: 30%;
+    padding: 5px;
+}
+
+.menu-wrapper{
+    width: 21% !important;
+    margin-top: 130px;
+    text-align: right;
+}
+
+.menu-wrapper {
+    .nav li a{
+        color: $logo-color !important;
+        font-size: 24px;
+         
+    }
+
+   .nav li a span.route-name{
+        
+         border-bottom: 1px solid $logo-light-color;
+    }
+
+    .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus,.nav-pills > li > a:hover{
+        background-color: #fff;
+    }
+} 
+
+
+.main-content-wrapper{
+    width: 57% !important;
+}
+
+.content-wrapper{
+    padding-top: 20px;
+}
+
+.border{
+    border: 1px solid red;
+}
+
+.top20{
+    margin-top: 20px;
+}

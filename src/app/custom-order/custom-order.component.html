@@ -1,0 +1,13 @@
+<p>
+  Choose your item! You can also Choose your own ingredient.
+</p>
+
+<div class="row">
+  <div *ngFor="let menu of menuList" class="col-md-4">      
+    <input type="radio" name="selectedMenus" value="{{menu.id}}" (click)="getSelectedMenuValue($event)">{{menu.name}}
+  </div>
+</div>
+
+
+<menu-details *ngIf="selectedMenu"  [selectedMenu]="selectedMenu" ></menu-details>
+

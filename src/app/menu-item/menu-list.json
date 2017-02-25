@@ -1,0 +1,32 @@
+{
+    "menuList":[
+        {"id":1,"sn":"nd","name":"Noodeles",
+        "defaultIng":[1,5,3],
+        "chooseIng":[1,5,8]
+        },
+        {"id":2,"sn":"sd","name":"Salad",
+        "defaultIng":[1,8,4],
+        "chooseIng":[1,5,8]
+        },
+        {"id":3,"sn":"sp","name":"Soup",
+        "defaultIng":[1,5,6],
+        "chooseIng":[1,5,8]
+        },
+        {"id":4,"sn":"fb","name":"Fresh Bowl",
+        "defaultIng":[9,3,8],
+        "chooseIng":[1,5,8]
+        },
+        {"id":5,"sn":"sn","name":"Snacks",
+        "defaultIng":[1,2,3],
+        "chooseIng":[1,5,8]
+        },
+        {"id":6,"sn":"pz","name":"Pizza",
+       "defaultIng":[1,2,3],
+        "chooseIng":[1,5,8]
+        },
+        {"id":7,"sn":"sw","name":"Sandwich",
+        "defaultIng":[1,2,3],
+        "chooseIng":[1,5,8]
+        }
+    ]
+}

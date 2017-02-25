@@ -1,0 +1,21 @@
+
+<div class="row">
+  <div class="col-md-12 top20">
+    Thanks for choosing our special item <span class="defaultIng">{{selectedMenu.name}}</span>. This item is cooked by our 
+    fresh ingredient 
+    <span class="defaultIng" *ngFor="let defaultIng of selectedDefaultIng; let last = last"> 
+      {{defaultIng.name}}<span *ngIf="!last" >,</span></span>. But you can choose your own ingredient if you want.
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 top20">
+    Do you want to choose your own ingredient? 
+    <button #yes (click)="chooseIng(1)">Yes</button>  <button #no (click)="chooseIng(0)">No</button>
+  </div>
+</div>
+sds
+
+<ingredientList *ngIf="ingChooseOption"></ingredientList>
+<addItem *ngIf="!ingChooseOption"> </addItem>
+

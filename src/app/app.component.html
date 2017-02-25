@@ -1,3 +1,25 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container main-wrapper">
+  <div class="row">
+    <div class="col-md-2 menu-wrapper">
+      <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" class="active"><a [routerLink]="['/']"><span class="route-name">Home</span></a></li>
+        <li role="presentation"><a [routerLink]="['/services']"><span class="route-name">Services</span></a></li>
+        <li role="presentation"><a [routerLink]="['/custom-order']"><span class="route-name">Custom Order</span></a></li>
+        <li role="presentation"><a [routerLink]="['/contact']"><span class="route-name">Contact Us</span></a></li>
+      </ul>
+    </div>
+    <div class="col-md-7 main-content-wrapper ">
+      <div class="row logo">
+        <img  align="center" src="../assets/logo.png" />
+      </div>
+      <div class=row><div class="logo-border"></div></div>
+      <div class="row content-wrapper">
+        
+        <router-outlet></router-outlet>
+      </div>
+      
+    </div>
+    
+  </div>
+</div>
+

@@ -4,17 +4,33 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { FreshServicesComponent } from './fresh-services/fresh-services.component';
+import { CustomOrderComponent } from './custom-order/custom-order.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { MenuItemService } from './menu-item/menu-item.service';
+import { MenuDetailsComponent } from './menu-details/menu-details.component';
+
+import { routing } from './app.routes';
+import { IngredientDetailsComponent } from './ingredient-details/ingredient-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    FreshServicesComponent,
+    CustomOrderComponent,
+    ContactUsComponent,
+    MenuDetailsComponent,
+    IngredientDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
-  providers: [],
+  providers: [MenuItemService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
