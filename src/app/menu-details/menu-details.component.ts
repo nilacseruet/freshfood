@@ -21,7 +21,9 @@ export class MenuDetailsComponent implements OnInit {
 
    ngOnChanges(changes: SimpleChanges) {
         // only run when property "data" changed
+        this.ingChooseOption = 0;
         if (changes['selectedMenu']) {
+          console.log("changes menu");
           this.selectedDefaultIng = [];
           this.selectedMenu.defaultIng.forEach((item, index) => {
               this.getSelectedDefaultIngredient(item);
@@ -33,7 +35,7 @@ export class MenuDetailsComponent implements OnInit {
     getSelectedDefaultIngredient(ingId){
        
         const ingredientList$ = this.menuItemService.getIngredientById(ingId);
-        ingredientList$.subscribe(data => { this.selectedDefaultIng.push(data[0])});
+        ingredientList$.subscribe(data => { console.log("test"+data[0]); this.selectedDefaultIng.push(data[0])});
     }
 
     chooseIng(option){

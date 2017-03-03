@@ -13,6 +13,7 @@ import { MenuDetailsComponent } from './menu-details/menu-details.component';
 
 import { routing } from './app.routes';
 import { IngredientDetailsComponent } from './ingredient-details/ingredient-details.component';
+import { AddItemComponent } from './add-item/add-item.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { IngredientDetailsComponent } from './ingredient-details/ingredient-deta
     CustomOrderComponent,
     ContactUsComponent,
     MenuDetailsComponent,
-    IngredientDetailsComponent
+    IngredientDetailsComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,

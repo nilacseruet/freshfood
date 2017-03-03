@@ -11,11 +11,11 @@
 <div class="row">
   <div class="col-md-12 top20">
     Do you want to choose your own ingredient? 
-    <button #yes (click)="chooseIng(1)">Yes</button>  <button #no (click)="chooseIng(0)">No</button>
+    <button #yes (click)="chooseIng(1)">Yes</button>  <button #no (click)="chooseIng(2)">No</button>
   </div>
 </div>
-sds
 
-<ingredientList *ngIf="ingChooseOption"></ingredientList>
-<addItem *ngIf="!ingChooseOption"> </addItem>
 
+<ingredientList *ngIf="ingChooseOption==1" [selectedMenu]="selectedMenu.name" ></ingredientList>
+
+<add-item *ngIf="ingChooseOption == 2" ></add-item>

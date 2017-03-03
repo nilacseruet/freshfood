@@ -1,4 +1,4 @@
-export class Menu {
+export interface Menu {
   id: Number;
   sn: string;
   name:string;
@@ -6,14 +6,21 @@ export class Menu {
   chooseIng:Array<Number>;
 }
 
-export class Ingredient {
+export interface Ingredient {
   id: Number;
   name:string;
   type:Number;
+  price:Number;
 }
 
 
-export class IngredientType {
+export interface IngredientType {
   id: Number;
   name:string;
+}
+
+export interface menuIngPrice {
+  menu:string;
+  ingredient:string[];
+  price:Number;
 }

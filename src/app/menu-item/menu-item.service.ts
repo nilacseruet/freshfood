@@ -32,9 +32,26 @@ export class MenuItemService {
          return this._http.get('app/menu-item/ingredient-list.json')
             .map((response: Response) => <Ingredient[]>response.json().ingredientList
             .filter(data=>data.id == id))
+            .do(data => console.log("nila"+(data)))
+            .catch(this.handleError);
+    }
+
+    getIngredientTypeList():Observable<IngredientType[]>{
+        return this._http.get('app/menu-item/ingredient-type.json')
+            .map((response: Response) => <IngredientType[]>response.json().ingredientTypeList)
+            //.do(data => console.log("ingredientTypeList"+JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+
+    getIngredientByTypeId(typeId): Observable<Ingredient[]>{
+         return this._http.get('app/menu-item/ingredient-list.json')
+            .map((response: Response) => <Ingredient[]>response.json().ingredientList
+            .filter(data=>data.type == typeId))
             .do(data => console.log("nila"+JSON.stringify(data)))
             .catch(this.handleError);
     }
+
 
     private handleError(error: Response) {
         console.error(error);
