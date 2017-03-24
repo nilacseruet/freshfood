@@ -1,26 +1,28 @@
 export interface Menu {
-  id: Number;
+  id: number;
   sn: string;
   name:string;
-  defaultIng:Array<Number>;
-  chooseIng:Array<Number>;
+  defaultIng:Array<number>;
+  chooseIng:Array<number>;
 }
 
 export interface Ingredient {
-  id: Number;
+  id: number;
   name:string;
-  type:Number;
-  price:Number;
+  type:number;
+  price:number;
 }
 
 
 export interface IngredientType {
-  id: Number;
+  id: number;
   name:string;
 }
 
 export interface menuIngPrice {
   menu:string;
   ingredient:string[];
-  price:Number;
+  price:number;
+  quantity:number;
+  finalPrice ?:number;
 }

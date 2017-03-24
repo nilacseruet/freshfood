@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
-import {Menu,Ingredient,IngredientType} from '../menu-item/menu';
+import {Menu,Ingredient,IngredientType,menuIngPrice} from '../menu-item/menu';
 import {MenuItemService} from '../menu-item/menu-item.service';
 
 @Component({
@@ -10,18 +10,22 @@ import {MenuItemService} from '../menu-item/menu-item.service';
 export class MenuDetailsComponent implements OnInit {
   @Input() selectedMenu: Menu;
   
-  test:String;
+  test:string;
   selectedDefaultIng:Ingredient[];
-  ingChooseOption:Number;
+  ingChooseOption:number;
+  menuIngPriceList:menuIngPrice;
 
   constructor(private menuItemService:MenuItemService) { }
 
    ngOnInit() {
+     this.menuIngPriceList = {"menu":"","ingredient":[],"price":0,"quantity":1};
+    
    }
 
    ngOnChanges(changes: SimpleChanges) {
         // only run when property "data" changed
         this.ingChooseOption = 0;
+        //console.log("changesssssmenu");
         if (changes['selectedMenu']) {
           console.log("changes menu");
           this.selectedDefaultIng = [];
@@ -40,7 +44,14 @@ export class MenuDetailsComponent implements OnInit {
 
     chooseIng(option){
       this.ingChooseOption = option;
-      
+      if(option==2){
+          this.menuIngPriceList["menu"]=this.selectedMenu.name;
+          this.selectedDefaultIng.forEach((item, index) => {
+              this.menuIngPriceList.ingredient.push(item.name);
+              this.menuIngPriceList["price"] +=item.price;
+          });
+          
+      }
     }
 
 }

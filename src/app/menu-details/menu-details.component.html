@@ -18,4 +18,4 @@
 
 <ingredientList *ngIf="ingChooseOption==1" [selectedMenu]="selectedMenu.name" ></ingredientList>
 
-<add-item *ngIf="ingChooseOption == 2" ></add-item>
+<add-item [menuIngPriceList]="menuIngPriceList" *ngIf="ingChooseOption == 2" ></add-item>

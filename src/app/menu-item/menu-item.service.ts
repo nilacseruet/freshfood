@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
-import {Menu,Ingredient,IngredientType} from './menu';
+import {Menu,Ingredient,IngredientType,menuIngPrice} from './menu';
 
 
 
 @Injectable()
 export class MenuItemService {
-
+ 
   menuList: Observable<Menu[]>;
   errorMessage: string;
-  test:any;
-  constructor(private _http: Http) { }
+  finalList:menuIngPrice[];
+  finalPrice:number;
+
+  constructor(private _http: Http) { 
+      this.finalList = [];
+      this.finalPrice = 0;
+    }
  
    getMenuList() {
        return this.getMenuListObservable();
@@ -50,6 +55,28 @@ export class MenuItemService {
             .filter(data=>data.type == typeId))
             .do(data => console.log("nila"+JSON.stringify(data)))
             .catch(this.handleError);
+    }
+
+    addSelectedItemOnFinalList(singleItem:menuIngPrice):menuIngPrice[]{
+         this.finalPrice +=singleItem.price;
+         singleItem.finalPrice = this.finalPrice;
+         //console.log(singleItem.price);
+         this.finalList.push(singleItem);
+         return this.finalList;
+    }
+
+    getAddToCartItemNo():number{
+        return this.finalList.length;
+    }
+   
+    isNotExistItemOnCart(item:string):number{
+        let exist = this.finalList.filter(data=>data.menu==item);
+
+        console.log("exist"+exist.length);
+        if(exist.length==0)
+            return 1;
+        else
+            return 0;
     }
 
 

@@ -1,3 +1,9 @@
+<p id="checkoutPara" *ngIf="item_no > 0" align="right">
+   <a [routerLink]="['/checkout']">
+      <button type="button" id="checkoutBtn" class="btn btn-success" >Checkout({{item_no}})</button>
+      
+    </a>
+</p>
 <p>
   Choose your item! You can also Choose your own ingredient.
 </p>
@@ -8,6 +14,8 @@
   </div>
 </div>
 
-
-<menu-details *ngIf="selectedMenu"  [selectedMenu]="selectedMenu" ></menu-details>
+<div class="top20" *ngIf="isNotExistItemOnCart==0">
+    You already added this item in your cart. Please choose another one.   
+</div>
+<menu-details id="menu-details" *ngIf="selectedMenu && isNotExistItemOnCart>0"  [selectedMenu]="selectedMenu" ></menu-details>
 

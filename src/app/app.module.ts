@@ -14,6 +14,8 @@ import { MenuDetailsComponent } from './menu-details/menu-details.component';
 import { routing } from './app.routes';
 import { IngredientDetailsComponent } from './ingredient-details/ingredient-details.component';
 import { AddItemComponent } from './add-item/add-item.component';
+import {ModalWindow} from './add-item/modal-window';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { AddItemComponent } from './add-item/add-item.component';
     ContactUsComponent,
     MenuDetailsComponent,
     IngredientDetailsComponent,
-    AddItemComponent
+    AddItemComponent,
+    ModalWindow,
+    CheckoutComponent
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@ export class IngredientDetailsComponent implements OnInit {
   constructor(private menuItemService:MenuItemService) { 
     this.ingList = [];
     this.ownIngList = [];
-    this.menuIngPriceList = {"menu":"","ingredient":[],"price":1};
+    this.menuIngPriceList = {"menu":"","ingredient":[],"price":0,"quantity":1};
     
   }
 
@@ -53,28 +53,23 @@ export class IngredientDetailsComponent implements OnInit {
 
   clickOwnIngredient(e,ingName,ingPrice){
 
-    console.log("clicl ");
-    let price=1;
+  
     if(e.target.checked){
       
       this.ownIngList.push(ingName);
-      price=price*ingPrice;
-      
+      this.menuIngPriceList["price"] +=ingPrice;
       this.menuIngPriceList.ingredient = this.ownIngList;
-      this.menuIngPriceList["price"] = price;
-      console.log("clicl by "+this.ownIngList+price +"::"+this.menuIngPriceList["ingredient"]);
+      
     }else{
       
       let index = this.ownIngList.indexOf(ingName);
       if (index > -1) {
           this.ownIngList.splice(index, 1);
-          price=price%ingPrice;
+          this.menuIngPriceList["price"] = this.menuIngPriceList["price"] - ingPrice;
+          this.menuIngPriceList["ingredient"] = this.ownIngList;
            
-           this.menuIngPriceList["ingredient"] = this.ownIngList;
-            this.menuIngPriceList["price"] = price;
-            console.log("not clicl by "+this.ownIngList+price+"::"+this.menuIngPriceList["ingredient"]);
       }
-      
+      document.body.scrollTop = 1300;
     }
     
     

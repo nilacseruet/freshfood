@@ -1,6 +1,52 @@
-<p>
-  add-item works!
-</p>
-<ul *ngFor="let test of menuIngPriceList.ingredient">
-  <li>{{test}}</li>
-</ul>
+<div class="row">
+  <div class="col-md-12 top20 add-item">
+      You have chosen {{menuIngPriceList.menu}} with  your own ingredient 
+      <span class="defaultIng" *ngFor="let ownIng of menuIngPriceList.ingredient; let last = last"> 
+      {{ownIng}}<span *ngIf="!last" >,</span></span>. The price will be {{menuIngPriceList.price*menuIngPriceList.quantity| currency:'CAD':true}}.
+   
+      <form (ngSubmit)="onSubmit(quantityForm.value)" #quantityForm="ngForm">
+          <div class="form-group col-md-5">
+              <label for="name" class="">How many quantity you want:</label>
+              <input type="text" class="form-control" id="quantity"
+                    required min="1"
+                    [(ngModel)]="menuIngPriceList.quantity" name="quantity"
+                    #quantity="ngModel">
+              <div [hidden]="quantity.valid || quantity.pristine|| menuIngPriceList.quantity>0"
+                      class="alert alert-danger">
+                    quantity is required
+              </div>
+              <div [hidden]="quantityNotNumber"
+                      class="alert alert-danger">
+                    quantity is number and greather then 0
+              </div>
+          </div>
+          <div class="col-md-12">
+          <button type="submit" class="btn btn-success" [disabled]="!quantityForm.form.valid">Add Item</button>
+          </div>
+      </form>
+      
+  </div>
+</div>
+
+
+  <app-modal>
+    <div class="app-modal-header">
+      header
+    </div>
+    <div class="app-modal-body">
+      Your final selected list is on below
+      <ul  *ngFor="let finalItem of finalList"> 
+        <li>{{finalItem.menu}}</li>
+      </ul>
+      You will have to pay toatal {{finalList[finalList.length-1]?.finalPrice | currency:'CAD':true}}
+     </div>
+    <div class="app-modal-footer">
+      <p>
+        You can go to checkout section or you can 
+        continue with more item adding your cart.
+      </p>
+      <button type="button" class="btn btn-default" (click)="modal.hide(1)">Add more item</button>
+      <a [routerLink]="['/checkout']"><button type="button" class="btn btn-primary">CheckOut</button></a>
+   
+    </div>
+  </app-modal>
