@@ -45,6 +45,7 @@ export class MenuDetailsComponent implements OnInit {
     chooseIng(option){
       this.ingChooseOption = option;
       if(option==2){
+          this.menuIngPriceList = {"menu":"","ingredient":[],"price":0,"quantity":1};
           this.menuIngPriceList["menu"]=this.selectedMenu.name;
           this.selectedDefaultIng.forEach((item, index) => {
               this.menuIngPriceList.ingredient.push(item.name);

@@ -1,3 +1,138 @@
-<p>
-  checkout works!
-</p>
+
+<div *ngIf="item_no>0; else emptyItem">
+  
+  <div class="row">
+    <div class="col-md-6 ">
+      Your final list:
+      <ul  *ngFor="let finalItem of finalList"> 
+        <li>{{finalItem.menu}} ----------><button (click)="removeItem(finalItem.menu)">Remove</button></li>
+      </ul>
+
+      You will have to pay toatal {{finalList[finalList.length-1]?.finalPrice | currency:'CAD':true}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Payment</h3>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-12 ">
+      <img class="payment_img" src="../assets/online_payment_button-1.jpg" width="368" height="357" />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Shipping Address</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+        <form class="form-horizontal" novalidate (ngSubmit)="onSubmit(shipping)" [formGroup]="shipping">
+            <div class="form-group">
+                <label class="col-md-3 control-label">Full name </label>
+                <input class="col-md-8"  type="text" placeholder="Your full name" formControlName="name">
+               
+                <div class="alert alert-danger col-sm-offset-3 col-sm-8" *ngIf="shipping.get('name').touched && shipping.get('name').hasError('required')">
+                  Name is required
+                </div>
+                <div class="alert alert-danger col-sm-offset-3 col-sm-8" *ngIf="shipping.get('name').touched && shipping.get('name').hasError('minlength')">
+                  Minimum of 2 characters
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">Email address</label>
+                  <input class="col-md-8"  type="email" placeholder="Your email address" formControlName="email">
+                
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="shipping.get('email').hasError('required') && shipping.get('email').touched">
+                  Email is required
+                </div>
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="shipping.get('email').hasError('incorrectMailFormat')">
+                  Valid Email address is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">Address Line1</label>
+                <input class="col-md-8"  type="text" placeholder="Street Number, street Name" formControlName="address1">
+               
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="shipping.get('address1').hasError('required') && shipping.get('address1').touched">
+                  Address  is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">Address Line2</label>
+                  <input class="col-md-8"  type="text" placeholder="Apt Number, Bazar code" formControlName="address2">
+                
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">City</label>
+                  <input class="col-md-8" type="text" placeholder="City/Town" formControlName="city">
+              
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="shipping.get('city').hasError('required') && shipping.get('city').touched">
+                  City  is required
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">State</label>
+                  <input class="col-md-8"  type="text" placeholder="State/Provience" formControlName="state">
+                
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">Zip</label>
+                  <input class="col-md-8"  type="text" placeholder="Zip/Postal Code" formControlName="zip">
+                
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="shipping.get('zip').hasError('required') && shipping.get('zip').touched">
+                  Zip  is required
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">Country</label>
+                  <input class="col-md-8"  type="text" placeholder="Country" formControlName="country">
+                
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="shipping.get('country').hasError('required') && shipping.get('country').touched">
+                  Country  is required
+                </div>
+            </div>
+
+            
+            <div class="form-group">
+              <div class="col-md-offset-6 col-md-8">
+               <button  type="submit" class="btn btn-success" [disabled]="shipping.invalid">Confirm</button>
+
+              </div>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+
+ <ng-template #emptyItem>
+   You didn't add any item in your List. 
+   Please first add item from <a [routerLink]="['/custom-order']">Custom Order</a>
+   </ng-template>
+

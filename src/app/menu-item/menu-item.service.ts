@@ -69,14 +69,36 @@ export class MenuItemService {
         return this.finalList.length;
     }
    
-    isNotExistItemOnCart(item:string):number{
+    getFinalList():menuIngPrice[]{
+         return this.finalList;
+    }
+
+    removeItemFromFinalList(item:string):menuIngPrice[]{
         let exist = this.finalList.filter(data=>data.menu==item);
 
-        console.log("exist"+exist.length);
+        //console.log(exist.length+" "+exist[0])
+        if(exist.length>0){
+            let index = this.finalList.indexOf(exist[0]);
+            if (index > -1) {
+                this.finalList.splice(index, 1);
+            }
+        }
+
+        return this.finalList;
+    }
+
+    isNotExistItemOnCart(item:string):number{
+        let exist = this.finalList.filter(data=>data.menu==item);
         if(exist.length==0)
             return 1;
         else
             return 0;
+    }
+
+
+    emptyList(){
+        this.finalList = [];
+        this.finalPrice = 0;
     }
 
 
