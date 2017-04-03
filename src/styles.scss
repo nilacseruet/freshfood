@@ -10,7 +10,7 @@ $logo-light-color: green;
 .main-wrapper{
     background-image: url('assets/bg-layout-wrapper.jpg');
     background-repeat: repeat-y;
-    
+    min-height: 650px !important;
 }
 
 .logo-wrapper{

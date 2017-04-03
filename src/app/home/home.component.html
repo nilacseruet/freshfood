@@ -1,12 +1,33 @@
-<P class="light-green-para">Lorem ipsum dolor sit amet consectetur adipiscing elit,
-   netus penatibus lacus posuere convallis risus torquent, 
-   eu tristique laoreet pellentesque feugiat dui. 
-   Aenean aliquam sociosqu egestas euismod nibh eget id 
-   tincidunt duis ante turpis neque, blandit urna dictum 
-   cum maecenas convallis purus gravida luctus magnis. Convallis 
-   commodo placerat dictum congue tempus maecenas, nulla habitasse
-    fringilla nibh torquent ad phasellus, vestibulum metus neque primis id.
-</P>
-<p>Sollicitudin ligula at lectus vitae nibh blandit nunc parturient ac, convallis tincidunt hendrerit euismod odio lacus laoreet nisi, orci metus mauris senectus leo pellentesque habitasse litora. Mus scelerisque non sapien nibh velit habitant hendrerit fringilla orci sagittis cubilia penatibus, iaculis varius laoreet lectus nec dignissim parturient ut sed ligula inceptos. Ante donec ornare eu mollis vitae odio</p>
-<p>vehicula curae felis platea torquent morbi potenti imperdiet, vulputate fermentum vivamus magna habitant sollicitudin ultrices ac nostra urna viverra inceptos.
-  </p>
+
+<div class="row">
+  <div class="col-sm-12">
+    <carousel >
+      <slide *ngFor="let image of images">
+        <img src="{{image.url}}" alt="First slide">
+        <div class="carousel-caption">
+          <h3>{{image.title}}</h3>
+         
+        </div>
+      </slide>
+    </carousel>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 top20">
+    <P class="light-green-para">
+        Welcome to the fresh food world. Our main target is fresh, fresh ...... and fresh.
+    </P>
+
+    <P class="">
+      We love to serve you food that will give you homemade taste. Sometime we don't have mood to 
+      cook, for their we are ready to deliver your own chosable food in your door. The unique style 
+      is we give you option to choose your own ingredient whatever you like. Its like you are in heaven 
+      and wish to eat some yummy items, we will be there with your favourite one. 
+    </P>
+
+  </div>
+</div>
+
+    
+

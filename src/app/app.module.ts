@@ -16,6 +16,9 @@ import { IngredientDetailsComponent } from './ingredient-details/ingredient-deta
 import { AddItemComponent } from './add-item/add-item.component';
 import {ModalWindow} from './add-item/modal-window';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { CarouselModule } from 'ng2-bootstrap';
+import {CommonModalWindow} from './common/modal-window';
+
 
 @NgModule({
   declarations: [
@@ -28,14 +31,16 @@ import { CheckoutComponent } from './checkout/checkout.component';
     IngredientDetailsComponent,
     AddItemComponent,
     ModalWindow,
-    CheckoutComponent
+    CheckoutComponent,
+    CommonModalWindow
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     routing,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule
   ],
   providers: [MenuItemService],
   bootstrap: [AppComponent]

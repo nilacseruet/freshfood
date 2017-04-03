@@ -1,3 +1,99 @@
-<p>
-  contact-us works!
-</p>
+<div class="row">
+    <div class="col-md-12 light-green-para">
+      We love to hear from you. Anything from fetching problem or any suggestion how to 
+      improve our service, we always appriciate your comments. Please Complete the following 
+      form to reach with us.
+    </div>
+  </div>
+
+  <div class="row top20">
+    <div class="col-md-12">
+        <form class="form-horizontal" novalidate (ngSubmit)="onSubmit(contact)" [formGroup]="contact">
+            <div class="form-group form-group-lg">
+                <label class="col-md-3 control-label">Full name </label>
+                <input class="col-md-8"  type="text" placeholder="Your full name" formControlName="name">
+               
+                <div class="alert alert-danger col-sm-offset-3 col-sm-8" *ngIf="contact.get('name').touched && contact.get('name').hasError('required')">
+                  Name is required
+                </div>
+                <div class="alert alert-danger col-sm-offset-3 col-sm-8" *ngIf="contact.get('name').touched && contact.get('name').hasError('minlength')">
+                  Minimum of 2 characters
+                </div>
+            </div>
+
+            <div class="form-group form-group-lg">
+                <label class="col-md-3 control-label">Email address</label>
+                  <input class="col-md-8"  type="email" placeholder="Your email address" formControlName="email">
+                
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="contact.get('email').hasError('required') && contact.get('email').touched">
+                  Email is required
+                </div>
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="contact.get('email').hasError('incorrectMailFormat')">
+                  Valid Email address is required
+                </div>
+            </div>
+
+
+            <div class="form-group form-group-lg">
+                <label class="col-md-3 control-label">Phone</label>
+                  <input class="col-md-8" type="text" placeholder="Phone number" formControlName="phone">
+              
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="contact.get('phone').hasError('required') && contact.get('phone').touched">
+                  Phone  is required
+                </div>
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="contact.get('phone').hasError('validPhoneNumber')">
+                  Valid phone number is required(xxx-xxx-xxxx)
+                </div>
+            </div>
+
+
+            
+
+            <div class="form-group form-group-lg">
+                <label class="col-md-3 control-label">Messages</label>
+                <textarea class=" col-md-8"  rows="10" placeholder="comments" formControlName="messages"></textarea>
+                <div
+                  class="alert alert-danger col-sm-offset-3 col-sm-8"
+                  *ngIf="contact.get('messages').hasError('required') && contact.get('messages').touched">
+                  Message  is required
+                </div>
+                <div class="alert alert-danger col-sm-offset-3 col-sm-8" *ngIf="contact.get('messages').touched && contact.get('messages').hasError('maxlength')">
+                  Maxlength of 500 characters
+                </div>
+            </div>
+
+            
+            <div class="form-group form-group-lg">
+              <div class="col-md-offset-6 col-md-8">
+               <button  type="submit" class="btn btn-success" [disabled]="contact.invalid">Contact</button>
+
+              </div>
+            </div>
+        </form>
+    </div>
+  </div>
+
+  <button (click)="shows()">show</button>
+  <app-modal>
+    <div class="app-modal-header">
+      header
+    </div>
+    <div class="app-modal-body">
+      Thank you very much for your comments. We are looking forward it. 
+      Your comments are valuable for us. 
+      
+     </div>
+    <div class="app-modal-footer">
+      
+      <button type="button" class="btn btn-success" (click)="modal.hideModal()">Close</button>
+      
+    </div>
+  </app-modal>

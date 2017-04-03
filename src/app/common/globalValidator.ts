@@ -17,6 +17,17 @@ export class GlobalValidator{
         return null;
     }
 
+    static isValidPhoneNumber(control: FormControl ): ValidationResult {
+
+        var REGEXP = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/;
+
+        if (control.value != "" &&  !REGEXP.test(control.value)) {
+            return { "validPhoneNumber": true };
+        }
+
+        return null;
+    }
+
 }
 
 
