@@ -9,8 +9,12 @@
 </p>
 
 <div class="row">
-  <div *ngFor="let menu of menuList" class="col-md-4">      
-    <input type="radio" name="selectedMenus" value="{{menu.id}}" (click)="getSelectedMenuValue($event)">{{menu.name}}
+  <div *ngFor="let menu of menuList" class="col-md-4">  
+    <div class="radio ">  
+      <label>  
+        <input type="radio" name="selectedMenus" value="{{menu.id}}" (click)="getSelectedMenuValue($event)">{{menu.name}}
+      </label>
+    </div>
   </div>
 </div>
 

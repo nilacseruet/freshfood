@@ -18,6 +18,7 @@ import {ModalWindow} from './add-item/modal-window';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { CarouselModule } from 'ng2-bootstrap';
 import {CommonModalWindow} from './common/modal-window';
+import { ScrollBottomDirective } from './common/directive/scroll-bottom.directive';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {CommonModalWindow} from './common/modal-window';
     AddItemComponent,
     ModalWindow,
     CheckoutComponent,
-    CommonModalWindow
+    CommonModalWindow,
+    ScrollBottomDirective
   ],
   imports: [
     BrowserModule,

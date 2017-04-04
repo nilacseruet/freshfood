@@ -23,23 +23,21 @@ export class ContactUsComponent implements OnInit {
 
     this.contact = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
-      email: [''], //[Validators.required, GlobalValidator.incorrectMailFormat]],
-      phone: [''], //[Validators.required,GlobalValidator.isValidPhoneNumber]],
-      messages: [''], //[Validators.required,Validators.maxLength(500)]]
+      email: ['',[Validators.required, GlobalValidator.incorrectMailFormat]],
+      phone: ['',[Validators.required,GlobalValidator.isValidPhoneNumber]],
+      messages: ['',[Validators.required,Validators.maxLength(500)]]
       
     });
 
   }
 
- shows(){
-   this.modal.showModal();
- }
+  
+ 
   onSubmit({ value, valid }: { value: Contact, valid: boolean }) {
       if(valid){
-        //this.contact.reset();
-        //this.modal.show();
-        console.log(value);
+        //sthis.contact.reset();
         this.modal.showModal();
+        this.ngOnInit();
       }
   }
 

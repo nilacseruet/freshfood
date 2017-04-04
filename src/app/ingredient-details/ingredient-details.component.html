@@ -5,7 +5,11 @@
       <h1 class="ingType">{{ingType.name}}</h1>
       <div class="row col-md-12">
         <div *ngFor="let ingredient of ingList[ingType.name]" class="col-md-3" >      
-          <input type="checkbox" (click)="clickOwnIngredient($event,ingredient.name,ingredient.price)" />{{ingredient.name}}
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" (click)="clickOwnIngredient($event,ingredient.name,ingredient.price)" />{{ingredient.name}}
+            </label>
+          </div>
         </div>
       </div>
     </div>

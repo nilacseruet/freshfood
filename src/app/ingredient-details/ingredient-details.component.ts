@@ -60,6 +60,7 @@ export class IngredientDetailsComponent implements OnInit {
       this.menuIngPriceList["price"] +=ingPrice;
       this.menuIngPriceList.ingredient = this.ownIngList;
       
+      window.scrollTo(0, 1500);
     }else{
       
       let index = this.ownIngList.indexOf(ingName);
@@ -67,9 +68,9 @@ export class IngredientDetailsComponent implements OnInit {
           this.ownIngList.splice(index, 1);
           this.menuIngPriceList["price"] = this.menuIngPriceList["price"] - ingPrice;
           this.menuIngPriceList["ingredient"] = this.ownIngList;
-           
+           window.scrollTo(0, window.outerHeight+100);
       }
-      document.body.scrollTop = 1300;
+      
     }
     
     

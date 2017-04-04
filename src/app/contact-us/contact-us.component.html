@@ -63,7 +63,7 @@
                 <div
                   class="alert alert-danger col-sm-offset-3 col-sm-8"
                   *ngIf="contact.get('messages').hasError('required') && contact.get('messages').touched">
-                  Message  is required
+                  comments  is required
                 </div>
                 <div class="alert alert-danger col-sm-offset-3 col-sm-8" *ngIf="contact.get('messages').touched && contact.get('messages').hasError('maxlength')">
                   Maxlength of 500 characters
@@ -81,8 +81,8 @@
     </div>
   </div>
 
-  <button (click)="shows()">show</button>
-  <app-modal>
+  
+  <appmodal>
     <div class="app-modal-header">
       header
     </div>
@@ -96,4 +96,4 @@
       <button type="button" class="btn btn-success" (click)="modal.hideModal()">Close</button>
       
     </div>
-  </app-modal>
+  </appmodal>
