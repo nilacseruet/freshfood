@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-beta.31.
 
-##Install
+## Install
 npm install -g @angular/cli
 cd /path/to/your-project(go to your project dirctory, that downloaded or cloned from here)
 npm install
